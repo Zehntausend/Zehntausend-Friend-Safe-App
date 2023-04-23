@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from App.database import db
-
+from App.extensions import db
 
 class FollowRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)

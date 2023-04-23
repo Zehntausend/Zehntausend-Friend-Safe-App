@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from App.database import db
+from App.extensions import db
 
 
 class Notification(db.Model):

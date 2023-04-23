@@ -1,5 +1,7 @@
-from App.database import db
-from App.models import Location
+# from App.database import db
+# from App.models import Location
+
+from App.models.location import *
 
 
 def create_location(user_id, latitude, longitude, radius, tag):

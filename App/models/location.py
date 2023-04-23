@@ -1,6 +1,6 @@
 from geopy import distance
 
-from App.database import db
+from App.extensions import db
 
 
 class Location(db.Model):
