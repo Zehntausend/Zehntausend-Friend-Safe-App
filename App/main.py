@@ -1,25 +1,20 @@
-import os
 from flask import Flask
-from flask_login import LoginManager, current_user
-from flask_uploads import DOCUMENTS, IMAGES, TEXT, UploadSet, configure_uploads
 from flask_cors import CORS
-from werkzeug.utils import secure_filename
-from werkzeug.datastructures import  FileStorage
-from datetime import timedelta
+from flask_uploads import DOCUMENTS, IMAGES, TEXT, UploadSet, configure_uploads
 
-from App.database import init_db
 from App.config import config
-
-from App.controllers import (
-    setup_jwt,
-    setup_flask_login
-)
-
+# from App.controllers import (
+#     setup_jwt,
+#     setup_flask_login
+# )
+from App.database import init_db
 from App.views import views
+
 
 def add_views(app):
     for view in views:
         app.register_blueprint(view)
+
 
 def configure_app(app, config, overrides):
     for key, value in config.items():
@@ -27,6 +22,7 @@ def configure_app(app, config, overrides):
             app.config[key] = overrides[key]
         else:
             app.config[key] = config[key]
+
 
 def create_app(config_overrides={}):
     app = Flask(__name__, static_url_path='/static')
@@ -41,7 +37,7 @@ def create_app(config_overrides={}):
     configure_uploads(app, photos)
     add_views(app)
     init_db(app)
-    setup_jwt(app)
-    setup_flask_login(app)
+    # setup_jwt(app)
+    # setup_flask_login(app)
     app.app_context().push()
     return app
