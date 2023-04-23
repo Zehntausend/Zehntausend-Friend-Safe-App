@@ -35,3 +35,8 @@ def update_user(id, username):
         db.session.add(user)
         return db.session.commit()
     return None
+
+
+def get_all_users_json():
+    users = get_all_users()
+    return get_users_json(users)
