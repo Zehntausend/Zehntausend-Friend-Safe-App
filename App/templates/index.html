@@ -1,10 +1,24 @@
 {% extends "layout.html" %}
 {% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
+{% block page %}
+    <img class="logo" src="https://i.postimg.cc/Dyz463gB/friend-App-logo.png" alt="Logo">
+    <span class="app-name">Friends Safe App</span>
+{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+    <div id="cover">
+        <form method="get" action="">
+          <div class="tb">
+            <div class="td"><input type="text" placeholder="Search Friends" required></div>
+            <div class="td" id="s-cover">
+              <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
 {% endblock %}
