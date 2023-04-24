@@ -19,19 +19,17 @@ class User(db.Model, UserMixin):
         lazy="dynamic",
         cascade="delete"
     )
-
     followers = db.relationship(
         "Follow",
-        backref="user",
+        backref="target_user",
         primaryjoin="User.id == Follow.target_user_id",
         lazy="dynamic",
         cascade="delete"
     )
-
     following = db.relationship(
         "Follow",
-        backref="target_user",
-        primaryjoin="User.id == Follow.target_user_id",
+        backref="user",
+        primaryjoin="User.id == Follow.user_id",
         lazy="dynamic",
         cascade="delete"
     )
