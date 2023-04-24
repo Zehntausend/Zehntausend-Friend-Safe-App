@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
+        * {
+            font-family: 'Fredoka', sans-serif;
+            user-select: none;
+        }
+
+        *::selection {  
+            color: white;
+            background-color: #F4B9B2;
+        }
+        *::-moz-selection {
+            background: white;
+            background-color: #F4B9B2;
+        }
+
+        body {
+            background-image: radial-gradient(#CFBAF0 5%, transparent 5%),
+                radial-gradient(#F1C0E8 5%, transparent 5%);
+            background-color: #FDE4CF;
+            background-position: 0 0, 25px 25px;
+            background-size: 50px 50px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .window {
+            width: 50vw;
+            background-color: #FBF8CC;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header{
+          height :50px ;
+          border :3px solid ;
+          border-radius :5px 5px 0 0 ;
+          border-bottom-width :0 ;
+          display :flex ;
+        }
+
+        .dot {
+          height :1.3em ;
+          width :1.3em ;
+          border-radius :50% ;
+          display :inline-block ;
+          align-self:center ;
+          margin-left :7px ;
+        }
+
+        .dot:hover{
+          height :1.4em ;
+          width :1.4em ;
+          margin-left :5px ;
+        }
+
+        .dot-one {
+          background-color:#a3c4f3 ;
+        }
+
+        .dot-two {
+          background-color:#84dcc6 ;
+        }
+
+        .dot-three{
+          background-color:#ff5d8f ;
+        }
+
+        .box{
+          height:auto ;
+          border :3px solid ;
+          border-radius :0 0 5px 5px ;
+          padding :20px ;
+          display:flex ;
+          flex-direction :column ;
+          align-items:center ;
+          justify-content:center ;
+          gap :10px ;
+        }
+
+        form{
+          display:flex ;
+          flex-direction :column ;
+          align-items:center ;
+          justify-content:center ;
+          gap :10px ;
+        }
+
+
+input[type="submit"] {
+    background-color: #F4B9B2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #FDE4CF;
+}
+
+        
+        label{
+          font-size :1.2em ; 
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+      <div class="header">
+          <span class="dot dot-one"></span>
+          <span class="dot dot-two"></span>
+          <span class="dot dot-three"></span>
+      </div>
+      <div class="box">
+          <form method="POST">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required><br>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required><br>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required><br>
+              <label for="display_name">Display Name:</label>
+              <input type="text" id="display_name" name="display_name" required><br>
+              <input type="submit" value="Register">
+          </form>
+      </div>
+    </div> 
+</body>
+</html>

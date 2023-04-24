@@ -7,7 +7,7 @@ user_views = Blueprint('user_views', __name__, template_folder='../templates')
 @user_views.route('/me', methods=['GET'])
 @login_required
 def get_user_profile():  # Should probably have a place where the user can edit their profile
-    return render_template('user_profile.html', user=current_user)
+    return render_template('index.html', user=current_user)
 
 
 @user_views.route('/locations', methods=['GET'])
