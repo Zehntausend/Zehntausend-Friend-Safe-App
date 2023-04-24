@@ -26,4 +26,8 @@ def get_notifications():
 @user_views.route('/following', methods=['GET'])
 @login_required
 def get_following():
-    return render_template('following.html', following=current_user.following)
+    # Get the current user's followers
+    followers = current_user.followers.all()
+
+    # Render the template and pass in the followers
+    return render_template('followers.html', followers=followers)
