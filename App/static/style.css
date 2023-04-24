@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Origap';
-    src: url(App/templates/origap__.ttf)
+    src: url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap')
 }
 .app-name {
     font-weight: bold;
