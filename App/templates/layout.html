@@ -13,11 +13,22 @@
 
   </head>
   <body>
+    <style>
+      .light-purple,
+      .container {
+        text-align: center;
+        flex; align-items: center; 
+        justify-content: center;
+      }
+      .container{
+        margin-right: 50px;
+      }
+    </style>
     <!-- Add the regular navigation bar for desktop view -->
     <div class = "light-purple">
       <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
     </div>
-    
+    <div class="container" id="content">{% block content %}{% endblock %}</div>
     <!-- Add the sidebar for desktop view -->
     <ul id="sidebar" class="sidenav sidenav-fixed">
       <li><a href="/"><i class="material-icons">home</i>Home</a></li>
@@ -88,7 +99,7 @@
       {% endif %}
     {% endwith %}
 
-    <div class="container" id="content">{% block content %}{% endblock %}</div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
