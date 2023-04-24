@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
     followers = db.relationship(
         "Follow",
         backref="user",
-        primaryjoin="User.id == Follow.user_id",
+        primaryjoin="User.id == Follow.target_user_id",
         lazy="dynamic",
         cascade="delete"
     )

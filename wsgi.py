@@ -6,7 +6,6 @@ from App.models import Follow
 app = create_app()
 migrate = Migrate(app, db)
 
-
 @app.cli.command("init")
 def initialize():
     db.drop_all()
@@ -24,3 +23,11 @@ def initialize():
     db.session.commit()
 
     print(bob.get_json())
+
+    # Get Bob's followers
+    followers = bob.followers.all()
+
+    # Print the list of followers
+    print("Bob's followers:")
+    for follow in followers:
+        print(follow.follower.username)
