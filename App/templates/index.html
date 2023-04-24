@@ -15,6 +15,7 @@
 {{ super() }}
 {% block content %}
 <style>
+    
   .card {
   background-color: #8db8f9;
   border-radius: 5px;
@@ -24,7 +25,9 @@
   box-shadow: rgba(0, 0, 0, 0.7);
   color: white;
 }
-
+.card p {
+  line-height: 0.8; /* Adjust this value to your liking */
+}
 .card__image {
   height: 150px; /* Decreased height */
   width: 150px; /* Decreased width to maintain aspect ratio */
@@ -116,22 +119,16 @@
 }
 </style>
 <html>
-    
-        <div class="card">
-          <img src="https://avatars.dicebear.com/api/avataaars/{{ user.email }}.svg" alt="Person" class="card__image">
-          <p class="card__name">{{ user.email }}</p>
-          <div class="grid-container">
-      
-            <div class="grid-child-posts">
-              156 Post
-            </div>
-      
-            <div class="grid-child-followers">
-              1012 Likes
-            </div>
-      
-          </div>
-          <button class="btn draw-border">Edit Profile</button>
+    <div class="card">
+      <img src="https://avatars.dicebear.com/api/avataaars/{{ user.email }}.svg" alt="Person" class="card__image">
+      <p class="card__name">{{ user.display_name }}</p>
+      <p class="card__email">Email: {{ user.email }}</p>
+      <p class="card__home">Home: {% if user.home %}Is currently home.{% else %}Is not home.{% endif %}</p>
+      <div class="grid-container">
+        
+      </div>
+      <button class="btn draw-border">Edit Profile</button>
+    </div>
       
         </div>
     
