@@ -7,158 +7,179 @@
 
 {{ super() }}
 {% block content %}
-    <style>
-        .card {
-            max-width: 300px;
-            margin: 0 auto;
-        }
-        #cover {
-            margin-top: 0 auto;
-        }
-        input,
-        button {
-          color: #fff;
-          font-family: Nunito;
-          padding: 0;
-          margin: 0;
-          border: 0;
-          background-color: transparent;
-        }
-        
-        #cover {
-          position: absolute;
-          top: 140%;
-          left: 0;
-          right: 100;
-          width: 550px;
-          padding: 35px;
-          margin: -83px auto 0 auto;
-          background-color: #d1c4e9;
-          border-radius: 20px;
-          box-shadow: 0 10px 40px #d1c4e9, 0 0 0 20px #ffffffeb;
-          transform: scale(0.6);
-        }
-        
-        form {
-          height: 96px;
-        }
-        
-        input[type="text"] {
-          outline: none !important;
-          font-size: 30px !important;
-        }
-        
-        input[type="text"]::placeholder {
-          font-size: 30px !important;
-          color: #9487ab;
-        }
+<style>
+  .card {
+  background-color: #222831;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.7);
+  color: white;
+}
 
-        #s-cover {
-          width: 1px;
-          padding-left: 35px;
-        }
-        
-        button {
-          position: relative;
-          display: block;
-          width: 84px;
-          height: 96px;
-          cursor: pointer;
-        }
-        
-        #s-circle {
-          position: relative;
-          top: -8px;
-          left: 0;
-          width: 70px;
-          height: 70px;
-          margin-top: 0;
-          border-width: 15px;
-          border: 15px solid #fff;
-          background-color: transparent;
-          border-radius: 50%;
-          transition: 0.5s ease all;
-        }
-        
-        button span {
-          position: absolute;
-          top: 68px;
-          left: 43px;
-          display: block;
-          width: 45px;
-          height: 15px;
-          background-color: transparent;
-          border-radius: 10px;
-          transform: rotateZ(52deg);
-          transition: 0.5s ease all;
-        }
-        
-        button span:before,
-        button span:after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 45px;
-          height: 15px;
-          background-color: #fff;
-          border-radius: 10px;
-          transform: rotateZ(0);
-          transition: 0.5s ease all;
-        }
-        
-        #s-cover:hover #s-circle {
-          top: -1px;
-          width: 67px;
-          height: 15px;
-          border-width: 0;
-          background-color: #fff;
-          border-radius: 20px;
-        }
-        
-        #s-cover:hover span {
-          top: 50%;
-          left: 56px;
-          width: 25px;
-          margin-top: -9px;
-          transform: rotateZ(0);
-        }
-        
-        #s-cover:hover button span:before {
-          bottom: 11px;
-          transform: rotateZ(52deg);
-        }
-        
-        #s-cover:hover button span:after {
-          bottom: -11px;
-          transform: rotateZ(-52deg);
-        }
-        #s-cover:hover button span:before,
-        #s-cover:hover button span:after {
-          right: -6px;
-          width: 40px;
-          background-color: #fff;
-        }
-    </style>
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">User Profile</span>
-            User's Email: {{ user.email }}<br>
-            User's Location: {{ user.location }}
-            <br><br>
-            <div id="cover">
-                <form method="get" action="">
-                    <div class="tb">
-                        <div class="td"><input type="text" placeholder="Search Friends" required></div>
-                        <div class="td" id="s-cover">
-                            <button type="submit">
-                                <div id="s-circle"></div>
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+.card__image {
+  height: 120px; /* Decreased height */
+  width: 120px; /* Decreased width to maintain aspect ratio */
+  border-radius: 50%;
+  border: 5px solid #272133;
+  margin-top: 20px;
+  box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
+}
+
+.card__name {
+  margin-top: 10px; /* Decreased margin */
+  font-size: 1.2em; /* Decreased font size */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-size: 1em; /* Decreased font size */
+}
+
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 0.5em; /* Decreased margin */
+}
+
+.social-icons li {
+  display: inline-block;
+  margin: 0.15em;
+  position: relative;
+  font-size: 0.8em; /* Decreased font size */
+}
+
+.social-icons i {
+  color: #fff;
+  position: absolute;
+  top: 0.65em; /* Decreased top position */
+  left: 0.65em; /* Decreased left position */
+  transition: all 265ms ease-out;
+}
+
+.social-icons a:before {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  content: " ";
+  width: 35px; /* Decreased width */
+  height: 35px; /* Decreased height */
+  border-radius: 100%;
+  display: block;
+  background: linear-gradient(45deg, #ff003c, #c648c8);
+  transition: all 265ms ease-out;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 0.9em; /* Decreased font size */
+  margin-top: 10px; /* Decreased margin */
+  padding: 8px 16px; /* Decreased padding */
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+}
+
+/* Dynamically change card height based on screen size */
+@media only screen and (max-width: 767px) {
+  .card {
+    height: 30rem; /* Adjust the height as needed */
+  }
+
+  .card__name {
+    font-size: 1em;
+  }
+
+  .grid-container {
+    font-size: 0.9em;
+  }
+
+  .social-icons li {
+    font-size: 0.7em;
+  }
+
+  .social-icons i {
+    top: 0.5em;
+    left: 0.5em;
+  }
+
+  .social-icons a:before {
+    width: 25px;
+    height: 25px;
+  }
+
+  .btn {
+    font-size: 0.8em;
+    margin-top: 8px;
+    padding: 6px 12px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    height: 35rem; /* Adjust the height as needed */
+  }
+
+  .card__name {
+    font-size: 1.2em;
+  }
+
+  .grid-container {
+    font-size: 1em;
+  }
+
+  .social-icons li {
+    font-size: 0.8em;
+  }
+
+  .social-icons i {
+    top: 0.65em;
+    left: 0.65em;
+  }
+
+  .social-icons a:before {
+    width: 35px;
+    height: 35px;
+  }
+
+  .btn {
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 8px 16px;
+  }
+}
+</style>
+<html>
+    
+        <div class="card">
+          <img src="https://lh3.googleusercontent.com/ytP9VP86DItizVX2YNA-xTYzV09IS7rh4WexVp7eilIcfHmm74B7odbcwD5DTXmL0PF42i2wnRKSFPBHlmSjCblWHDCD2oD1oaM1CGFcSd48VBKJfsCi4bS170PKxGwji8CPmehwPw=w200-h247-no" alt="Person" class="card__image">
+          <p class="card__name">Lily-Grace Colley</p>
+          <div class="grid-container">
+      
+            <div class="grid-child-posts">
+              156 Post
             </div>
+      
+            <div class="grid-child-followers">
+              1012 Likes
+            </div>
+      
+          </div>
+          <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-codepen"></i></a></li>
+          </ul>
+          <button class="btn draw-border">Edit Profile</button>
+      
         </div>
-    </div>
+    
+</html>
 {% endblock %}
