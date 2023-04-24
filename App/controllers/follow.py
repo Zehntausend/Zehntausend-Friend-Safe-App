@@ -1,6 +1,7 @@
-from App.database import db
-from App.models import Follow
+# from App.extensions import db
+# from App.models import Follow
 
+from App.models.follow import *
 
 def create_follow(user_id, target_user_id):
     new_follow = Follow(user_id=user_id, target_user_id=target_user_id)

@@ -1,5 +1,7 @@
-from App.database import db
-from App.models import FollowRequest
+# from App.database import db
+# from App.models import FollowRequest
+
+from App.models.follow_request import *
 
 
 def create_follow_request(user_id, target_user_id):

@@ -1,5 +1,7 @@
-from App.database import db
-from App.models import Notification
+# from App.database import db
+# from App.models import Notification
+
+from App.models.notification import *
 
 
 def create_notification(type, user_id, target_user_id):
