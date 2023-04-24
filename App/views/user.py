@@ -6,7 +6,7 @@ user_views = Blueprint('user_views', __name__, template_folder='../templates')
 
 @user_views.route('/me', methods=['GET'])
 @login_required
-def get_locations():  # Should probably have a place where the user can edit their profile
+def get_user_profile():  # Should probably have a place where the user can edit their profile
     return render_template('user_profile.html', user=current_user)
 
 
@@ -18,11 +18,11 @@ def get_locations():
 
 @user_views.route('/notifications', methods=['GET'])
 @login_required
-def get_locations():
+def get_notifications():
     return render_template('notifications.html', notifications=current_user.received_notifications)
 
 
 @user_views.route('/following', methods=['GET'])
 @login_required
-def get_locations():
+def get_following():
     return render_template('following.html', following=current_user.following)

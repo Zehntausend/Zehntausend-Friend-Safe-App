@@ -1,7 +1,7 @@
 from flask import Blueprint, request, flash, redirect, url_for
 from flask_login import login_required, login_user, logout_user
 
-from App import login_manager
+from App.extensions import login_manager
 from App.models import User
 
 auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
