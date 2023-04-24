@@ -105,8 +105,15 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+input[value="Register"]:hover {
     background-color: #FDE4CF;
+}
+
+input[value="Login"] {
+    background-color: #77dd77;
+}
+input[value="Login"]:hover {
+    background-color: #dbf59b;
 }
 
         
@@ -132,7 +139,8 @@ input[type="submit"]:hover {
               <input type="email" id="email" name="email" required><br>
               <label for="display_name">Display Name:</label>
               <input type="text" id="display_name" name="display_name" required><br>
-              <input type="submit" value="Register">
+              <input type="submit" value="Register" style="display: inline-block;">
+              <input type="submit" value="Login" style="display: inline-block;" onclick="window.location.href='/login'; return false;">
           </form>
       </div>
     </div> 
