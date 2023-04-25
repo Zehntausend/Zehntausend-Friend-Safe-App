@@ -23,7 +23,7 @@ def get_notifications():
     return render_template('notifications.html', notifications=current_user.received_notifications)
 
 
-@user_views.route('/following', methods=['GET'])
+@user_views.route('/follower', methods=['GET'])
 @login_required
 def get_following():
     # Get the current user
@@ -35,3 +35,14 @@ def get_following():
         print(follow.follower.username)
     # Render the followers template
     return render_template('followers.html', following=followers)
+
+@user_views.route('/following', methods=['GET'])
+@login_required
+def who_following():
+    # Get the current user
+    
+
+    # Get the users that the current user is following
+    followers = current_user.following.all()
+    
+    return render_template('following.html', following=followers)
