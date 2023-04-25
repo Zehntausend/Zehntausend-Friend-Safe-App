@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block title %}App Users{% endblock %}
-{% block page %}Your Admirers{% endblock %}
+{% block page %}
+<style>
+  h3 img {
+      border-radius: 50%;
+  }
+</style>
+<h3>Your Admirers: <img src="https://i.postimg.cc/rsQNFP9C/removal-ai-tmp-64472b3db3716.png" alt="Emote" width="50" height="50"></h3>{% endblock %}
 
 {{ super() }}
 
