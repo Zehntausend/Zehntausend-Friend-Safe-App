@@ -2,6 +2,7 @@ from App.controllers import create_user
 from App.extensions import db, Migrate
 from App.main import create_app
 from App.models import Follow
+from App.models import FollowRequest
 
 app = create_app()
 migrate = Migrate(app, db)
@@ -23,11 +24,30 @@ def initialize():
     new_follow2 = Follow(user_id=charlie.id, target_user_id=bob.id)
     new_follow3 = Follow(user_id=david.id, target_user_id=bob.id)
     new_follow4 = Follow(user_id=emily.id, target_user_id=bob.id)
+    new_follow5 = Follow(user_id=bob.id, target_user_id=alice.id)
+    new_follow6 = Follow(user_id=bob.id, target_user_id=charlie.id)
 
+    newFollows1 = FollowRequest(user_id=bob.id, target_user_id=charlie.id)
+    newFollows2 = FollowRequest(user_id=bob.id, target_user_id=alice.id)
+
+    frank = create_user(username='frank', password='frankpass', display_name='Frank Johnson', email='frank@gmail.com')
+    george = create_user(username='george', password='georgepass', display_name='George Brown', email='george@gmail.com')
+    
+    # Create new FollowRequest objects
+    new_follow_request1 = FollowRequest(user_id=bob.id, target_user_id=frank.id)
+    new_follow_request2 = FollowRequest(user_id=bob.id, target_user_id=george.id)
+    
+    # Add the new FollowRequest objects to the database
+    db.session.add(new_follow_request1)
+    db.session.add(new_follow_request2)
     db.session.add(new_follow1)
     db.session.add(new_follow2)
     db.session.add(new_follow3)
     db.session.add(new_follow4)
+    db.session.add(new_follow5)
+    db.session.add(new_follow6)
+    db.session.add(newFollows1)
+    db.session.add(newFollows2)
     db.session.commit()
 
     print(bob.get_json())
@@ -39,3 +59,11 @@ def initialize():
     print("Bob's followers:")
     for follow in followers:
         print(follow.follower.username)
+
+    # Get the users that Bob is following
+    following = bob.following.all()
+
+    # Print the list of users that Bob is following
+    print("Bob is following:")
+    for follow in following:
+        print(follow.target_user.username)

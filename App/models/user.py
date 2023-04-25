@@ -26,7 +26,13 @@ class User(db.Model, UserMixin):
         lazy="dynamic",
         cascade="delete"
     )
-    
+    following = db.relationship(
+        "FollowRequest",
+        backref="user",
+        primaryjoin="User.id == FollowRequest.user_id",
+        lazy="dynamic",
+        cascade="delete"
+    )
 
     sent_notifications = db.relationship(
         "Notification",
@@ -40,14 +46,6 @@ class User(db.Model, UserMixin):
         "Notification",
         backref="target_user",
         primaryjoin="User.id == Notification.target_user_id",
-        lazy="dynamic",
-        cascade="delete"
-    )
-
-    sent_requests = db.relationship(
-        "FollowRequest",
-        backref="user",
-        primaryjoin="User.id == FollowRequest.user_id",
         lazy="dynamic",
         cascade="delete"
     )
