@@ -15,6 +15,7 @@ def initialize():
     alice = create_user(username='alice', password='alicepass', display_name='Alice Johnson', email='alice@gmail.com')
     charlie = create_user(username='charlie', password='charliepass', display_name='Charlie Brown', email='charlie@gmail.com')
 
+    charlie.home = False
     new_follow1 = Follow(user_id=alice.id, target_user_id=bob.id)
     new_follow2 = Follow(user_id=charlie.id, target_user_id=bob.id)
 
