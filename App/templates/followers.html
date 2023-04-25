@@ -1,8 +1,64 @@
+{% extends "layout.html" %}
+{% block title %}App Users{% endblock %}
+{% block page %}App Users{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 300px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #f7d7d7;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        background-color: #f7b3b3;
+    }
+
+    .container {
+        padding: 2px 16px;
+    }
+</style>
 <!DOCTYPE html>
 <html>
-<ul>
+<head>
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 300px;
+      margin: 10px;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
   {% for follow in following %}
-    <li>{{ follow.follower.username }}</li>
+    <div class="card">
+      <img src="https://avatars.dicebear.com/api/avataaars/{{ follow.follower.email }}.svg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>{{ follow.follower.username }}</b></h4>
+        <p>{{ follow.follower.email }}</p>
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>
+
+</body>
 </html>
+
+{% endblock %}
