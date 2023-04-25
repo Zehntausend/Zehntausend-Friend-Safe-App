@@ -27,15 +27,15 @@ def initialize():
     new_follow5 = Follow(user_id=bob.id, target_user_id=alice.id)
     new_follow6 = Follow(user_id=bob.id, target_user_id=charlie.id)
 
-    newFollows1 = FollowRequest(user_id=bob.id, target_user_id=charlie.id, user_email = charlie.email)
-    newFollows2 = FollowRequest(user_id=bob.id, target_user_id=alice.id, user_email = alice.email)
+    newFollows1 = FollowRequest(user_id=bob.id, target_user_id=charlie.id, user_email = charlie.email, user_name = charlie.display_name)
+    newFollows2 = FollowRequest(user_id=bob.id, target_user_id=alice.id, user_email = alice.email, user_name = alice.display_name)
 
     frank = create_user(username='frank', password='frankpass', display_name='Frank Johnson', email='frank@gmail.com')
     george = create_user(username='george', password='georgepass', display_name='George Brown', email='george@gmail.com')
     
     # Create new FollowRequest objects
-    new_follow_request1 = FollowRequest(user_id=bob.id, target_user_id=frank.id, user_email = frank.email)
-    new_follow_request2 = FollowRequest(user_id=bob.id, target_user_id=george.id, user_email = george.email)
+    new_follow_request1 = FollowRequest(user_id=bob.id, target_user_id=frank.id, user_email = frank.email, user_name = frank.display_name)
+    new_follow_request2 = FollowRequest(user_id=bob.id, target_user_id=george.id, user_email = george.email, user_name = george.display_name)
     
     # Add the new FollowRequest objects to the database
     db.session.add(new_follow_request1)
