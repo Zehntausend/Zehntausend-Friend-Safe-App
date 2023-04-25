@@ -12,7 +12,7 @@
             border-radius: 50%;
         }
     </style>
-<h3>Your Admirers: <img src="https://i.postimg.cc/rsQNFP9C/removal-ai-tmp-64472b3db3716.png" alt="Emote" width="50" height="50"></h3>{% endblock %}
+<h3>Who you stalk... <img src="https://i.postimg.cc/rsQNFP9C/removal-ai-tmp-64472b3db3716.png" alt="Emote" width="50" height="50"></h3>{% endblock %}
 
 {{ super() }}
 
@@ -62,8 +62,8 @@
       {% for follow in following %}
         <div class="card">
           <div class="container">
-            <img src="https://avatars.dicebear.com/api/avataaars/{{ follow.id }}.svg" alt="Avatar" style="width:100%">
-            <h4><b>{{ follow.id }}</b></h4>
+            <img src="https://avatars.dicebear.com/api/avataaars/{{ follow.user_email }}.svg" alt="Avatar" style="width:100%">
+            <p><b>{{ follow.user_email }}</b></p>
           </div>
         </div>
       {% endfor %}
