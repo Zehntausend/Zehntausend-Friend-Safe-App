@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Origap';
+    src: url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap')
+}
+.app-name {
+    font-weight: bold;
+     font-family: 'Origap', sans-serif;
+}
+.logo {
+    height: 5em;
+    vertical-align: middle;
+    margin-right: 0.05em;
+}
+
+
+#content {
+  padding-left: 150px;
+}
+/* Set the color of the icons in the bottom navigation bar */
+#bottom-nav .material-icons {
+  color: #6d5698f9;
+}
+.brand-logo {
+  display: block;
+  margin: 0 auto;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Set the color of the brand logo to match the navigation bar */
+.brand-logo {
+  color: #401839f9;
+}e {
+    margin-left: 20px;
+}
+
+* {
+    outline: none;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #ffd8d8;
+  }
+  
+  .tb {
+    display: table;
+    width: 100%;
+  }
+  
+  .td {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  
+  

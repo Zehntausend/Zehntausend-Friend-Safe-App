@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-  
+    <link rel="stylesheet" href="styleprofile.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
      <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,18 +13,73 @@
 
   </head>
   <body>
-    <nav class="purple">
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
-        <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left">
-                <li><a href="/">Home</a></li>
-                <li><a href="/users">Users Jinja</a></li>
-                <li><a href="/static/users">Users JS</a></li>
-            </ul>
-        </div>
-      </div>
-    </nav>
+    <style>
+      .light-purple,
+      .container {
+        text-align: center;
+        flex; align-items: center; 
+        justify-content: center;
+      }
+      .container{
+        margin-right: 50px;
+      }
+    </style>
+    <!-- Add the regular navigation bar for desktop view -->
+    <div class = "light-purple">
+      <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
+    </div>
+    <div class="container" id="content">{% block content %}{% endblock %}</div>
+    <!-- Add the sidebar for desktop view -->
+    <ul id="sidebar" class="sidenav sidenav-fixed">
+      <li><a href="/me"><i class="material-icons">home</i>Home</a></li>
+      <li><a href="/followers"><i class="material-icons">group</i>Admirers</a></li>
+      <li><a href="/following"><i class="material-icons">location_on</i>Following</a></li>
+    </ul>
+    
+    <!-- Add the bottom navigation bar for mobile view -->
+    <div id="bottom-nav" class="hide-on-large-only">
+      <ul>
+        <li><a href="/me"><i class="material-icons">home</i></a></li>
+        <li><a href="/followers"><i class="material-icons">group</i></a></li>
+        <li><a href="/following"><i class="material-icons">Following</i></a></li>
+      </ul>
+    </div>
+    
+    <!-- Add the CSS styles for the sidebar and bottom navigation bar -->
+    <style>
+      /* Style the sidebar */
+      #sidebar {
+        width: 300px;
+        background-color: #d1c4e9;
+      }
+    
+      /* Style the bottom navigation bar */
+      #bottom-nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #d1c4e9;
+      }
+    
+      #bottom-nav ul {
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 10px 0;
+      }
+    
+      #bottom-nav li {
+        list-style: none;
+      }
+    </style>
+    
+    <!-- Initialize the sidenav in JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      });
+    </script>
     
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -40,8 +95,11 @@
       {% endif %}
     {% endwith %}
 
-    <div class="container" id="content">{% block content %}{% endblock %}</div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
+
+
+
